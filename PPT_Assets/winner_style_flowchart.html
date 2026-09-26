@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    * { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: #FFFFFF; }
+    .shadow-card { box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.04); }
+    .shadow-badge { box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12); }
+  </style>
+</head>
+<body class="p-8 max-w-4xl mx-auto bg-white text-slate-800">
+
+  <!-- ================= TOP HEADER: USER -> LOG IN -> AUTHENTICATION ================= -->
+  <div class="flex items-center justify-between mb-8 px-4">
+    <!-- User Node -->
+    <div class="flex flex-col items-center">
+      <div class="w-16 h-16 rounded-full bg-indigo-50 border-2 border-indigo-500 flex items-center justify-center shadow-card">
+        <!-- User Avatar SVG -->
+        <svg class="w-9 h-9 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+        </svg>
+      </div>
+      <span class="mt-2 text-sm font-black text-slate-900 tracking-tight">USER</span>
+      <span class="text-[11px] text-slate-500 font-medium">(Grip Hold / Cane Contact)</span>
+    </div>
+
+    <!-- Arrow 1 -->
+    <div class="flex items-center text-slate-700">
+      <svg class="w-10 h-6" fill="none" stroke="currentColor" viewBox="0 0 40 24">
+        <line x1="2" y1="12" x2="34" y2="12" stroke-width="3" stroke-linecap="round"/>
+        <path d="M26 4L36 12L26 20" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- Bio-Grip Authentication Pill -->
+    <div class="flex items-center bg-sky-500 text-white px-7 py-3.5 rounded-full shadow-badge">
+      <div class="w-8 h-8 rounded-full bg-white text-sky-500 flex items-center justify-center mr-3 font-bold text-sm">
+        <svg class="w-5 h-5 text-sky-500" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+        </svg>
+      </div>
+      <div class="text-left">
+        <span class="text-base font-extrabold tracking-wide uppercase">POWER ON & BIO-GRIP</span>
+        <p class="text-[10px] text-sky-100 font-medium">MAX30102 PPG Optical Vitals Validated</p>
+      </div>
+    </div>
+
+    <!-- Arrow 2 -->
+    <div class="flex items-center text-slate-700">
+      <svg class="w-10 h-6" fill="none" stroke="currentColor" viewBox="0 0 40 24">
+        <line x1="2" y1="12" x2="34" y2="12" stroke-width="3" stroke-linecap="round"/>
+        <path d="M26 4L36 12L26 20" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- Shield Authentication -->
+    <div class="flex flex-col items-center">
+      <div class="relative w-16 h-16 rounded-2xl bg-emerald-50 border-2 border-emerald-500 flex items-center justify-center shadow-card">
+        <!-- Shield Icon -->
+        <svg class="w-9 h-9 text-emerald-600" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+        </svg>
+        <!-- Green Checkmark Badge -->
+        <div class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-emerald-500 border-2 border-white flex items-center justify-center text-white">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+      </div>
+      <span class="mt-2 text-xs font-bold text-slate-800">Hardware Verified</span>
+      <span class="text-[10px] text-emerald-600 font-bold">50ms FreeRTOS Loop Active</span>
+    </div>
+  </div>
+
+  <!-- Connective Wire down to Central Decision -->
+  <div class="flex justify-center mb-2">
+    <div class="w-0.5 h-6 bg-slate-400"></div>
+  </div>
+
+  <!-- ================= CENTRAL DECISION NODE ================= -->
+  <div class="max-w-md mx-auto text-center bg-slate-50 border border-slate-200 rounded-2xl p-4 shadow-card mb-6">
+    <div class="flex items-center justify-center gap-2 mb-1">
+      <!-- Cane & Environment Sensor Icon -->
+      <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+      </svg>
+      <h3 class="text-base font-black text-slate-900">Device Working OR Severe Hazard Detected?</h3>
+    </div>
+    <p class="text-xs text-slate-500 font-medium">Obstacle Ahead? • Abrupt Drop-off / Step-Down? • Unconscious Fall Spike?</p>
+  </div>
+
+  <!-- 3-Way Branch Connector -->
+  <div class="relative w-full h-8 mb-4">
+    <!-- Horizontal Branch Bar -->
+    <div class="absolute left-[16.6%] right-[16.6%] top-0 h-1 bg-slate-300"></div>
+    <!-- Vertical Connectors -->
+    <div class="absolute left-[16.6%] top-0 w-1 h-8 bg-sky-500"></div>
+    <div class="absolute left-1/2 -translate-x-1/2 top-0 w-1 h-8 bg-amber-500"></div>
+    <div class="absolute right-[16.6%] top-0 w-1 h-8 bg-emerald-600"></div>
+  </div>
+
+  <!-- ================= THREE-LANE WORKFLOW ================= -->
+  <div class="grid grid-cols-3 gap-6">
+
+    <!-- ----------------- LANE 1: ONLINE / NORMAL MODE (BLUE) ----------------- -->
+    <div class="flex flex-col items-center">
+      <!-- Mode Pill -->
+      <div class="w-full bg-sky-500 text-white py-2.5 px-4 rounded-full text-center shadow-badge mb-5">
+        <span class="text-xs font-black tracking-wide">ONLINE MODE</span>
+        <p class="text-[9px] text-sky-100">Standard Navigation • Battery &gt; 25%</p>
+      </div>
+
+      <!-- Arrow -->
+      <div class="w-0.5 h-6 bg-slate-300 mb-2"></div>
+
+      <!-- Step 1: Dual AI Vision -->
+      <div class="w-full bg-white border border-sky-100 rounded-2xl p-4 text-center shadow-card mb-4 flex flex-col items-center">
+        <div class="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-2">
+          <!-- Camera Icon -->
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          </svg>
+        </div>
+        <span class="text-xs font-bold text-slate-800">Dual-Camera Vision</span>
+        <span class="text-[10px] text-slate-500 mt-1">Forward 5MP + Lower 120° Ground Pavement Mapping</span>
+      </div>
+
+      <!-- Arrow -->
+      <div class="w-0.5 h-6 bg-slate-300 mb-2"></div>
+
+      <!-- Step 2: Edge AI YOLO OCR -->
+      <div class="w-full bg-white border border-sky-100 rounded-2xl p-4 text-center shadow-card mb-4 flex flex-col items-center">
+        <div class="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-2">
+          <!-- AI Brain Icon -->
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+        <span class="text-xs font-bold text-slate-800">YOLO Edge AI + OCR</span>
+        <span class="text-[10px] text-slate-500 mt-1">Bus Signs • Storefronts Pedestrian Crossing Signals</span>
+      </div>
+
+      <!-- Arrow -->
+      <div class="w-0.5 h-6 bg-slate-300 mb-2"></div>
+
+      <!-- Step 3: Ears-Free Guidance -->
+      <div class="w-full bg-white border border-sky-100 rounded-2xl p-4 text-center shadow-card mb-4 flex flex-col items-center">
+        <div class="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-2">
+          <!-- Bone Conduction Headphone Icon -->
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>
+          </svg>
+        </div>
+        <span class="text-xs font-bold text-slate-800">Bone-Conduction Audio</span>
+        <span class="text-[10px] text-slate-500 mt-1">Ears 100% Open for Traffic Spoken Turn-by-Turn Alerts</span>
+      </div>
+
+      <!-- Arrow -->
+      <div class="w-0.5 h-6 bg-slate-300 mb-2"></div>
+
+      <!-- Verified Badge Output -->
+      <div class="flex items-center gap-1.5 bg-sky-500 text-white px-5 py-2 rounded-full shadow-badge mb-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+        </svg>
+        <span class="text-[11px] font-black uppercase tracking-wider">VERIFIED SAFE</span>
+      </div>
+      <span class="text-[10px] text-slate-500 font-medium text-center">Continuous 30 fps Safe Trajectory</span>
+    </div>
+
+    <!-- ----------------- LANE 2: OFFLINE / REFLEX MODE (ORANGE) ----------------- -->
+    <div class="flex flex-col items-center">
+      <!-- Mode Pill with Innovation Star -->
+      <div class="relative w-full bg-amber-500 text-white py-2.5 px-4 rounded-full text-center shadow-badge mb-5">
+        <div class="absolute -top-2.5 -left-2 bg-amber-400 text-amber-950 text-[10px] font-black px-2 py-0.5 rounded-full border border-white shadow">⭐ INNOVATION</div>
+        <span class="text-xs font-black tracking-wide">OFFLINE MODE</span>
+        <p class="text-[9px] text-amber-100">Deterministic Safety • Zero Phone Needed</p>
+      </div>
+
+      <!-- Sub-Pill: Always-On FreeRTOS Loop -->
+      <div class="bg-emerald-600 text-white px-3 py-1 rounded-full text-[10px] font-bold shadow mb-3">
+        ALWAYS-ON FREERTOS CORE
+      </div>
+
+      <!-- Arrow -->
+      <div class="w-0.5 h-4 bg-slate-300 mb-2"></div>
+
+      <!-- Step 1: Acoustic + Laser Depth Sensing -->
+      <div class="w-full bg-white border border-amber-100 rounded-2xl p-4 text-center shadow-card mb-4 flex flex-col items-center">
+        <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-2">
+          <!-- Radar / Laser Icon -->
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+        </div>
+        <span class="text-xs font-bold text-slate-800">50ms Deterministic Loop</span>
+        <span class="text-[10px] text-slate-500 mt-1">40kHz Ultrasonic (SEN1) + Laser ToF Step Sensor (SEN2)</span>
+      </div>
+
+      <!-- Arrow -->
+      <div class="w-0.5 h-6 bg-slate-300 mb-2"></div>
+
+      <!-- Step 2: Sub-15ms Tactile Palm Haptics -->
+      <div class="w-full bg-white border border-amber-100 rounded-2xl p-4 text-center shadow-card mb-4 flex flex-col items-center">
+        <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-2">
+          <!-- Hand Haptic Vibration Icon -->
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path>
+          </svg>
+        </div>
+        <span class="text-xs font-bold text-slate-800">Sub-15ms Palm Haptics</span>
+        <span class="text-[10px] text-slate-500 mt-1">DRV2605L LRA Vibration Clicks for Obstacles, Drop-offs & Puddles</span>
+      </div>
+
+      <!-- Arrow -->
+      <div class="w-0.5 h-6 bg-slate-300 mb-2"></div>
+
+      <!-- Step 3: Motorized Adaptive Quad-Pod -->
+      <div class="w-full bg-white border border-amber-100 rounded-2xl p-4 text-center shadow-card mb-4 flex flex-col items-center">
+        <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-2">
+          <!-- Mechanical Quad-Pod Base Icon -->
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"></path>
+          </svg>
+        </div>
+        <span class="text-xs font-bold text-slate-800">Motorized Adaptive Tip</span>
+        <span class="text-[10px] text-slate-500 mt-1">1.2s Quad-Pod Deployment Stabilizes User on Rough Incline</span>
+      </div>
+
+      <!-- Arrow -->
+      <div class="w-0.5 h-6 bg-slate-300 mb-2"></div>
+
+      <!-- Fail-Safe Continuity Badge Output -->
+      <div class="flex items-center gap-1.5 bg-amber-500 text-white px-5 py-2 rounded-full shadow-badge mb-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+        </svg>
+        <span class="text-[11px] font-black uppercase tracking-wider">36h+ FAIL-SAFE</span>
+      </div>
+      <span class="text-[10px] text-slate-500 font-medium text-center">Zero Single Point of Failure (Runs with Pi Dead)</span>
+    </div>
+
+    <!-- ----------------- LANE 3: E-WASTE / EMERGENCY RESCUE MODE (GREEN) ----------------- -->
+    <div class="flex flex-col items-center">
+      <!-- Mode Pill with Innovation Star -->
+      <div class="relative w-full bg-emerald-600 text-white py-2.5 px-4 rounded-full text-center shadow-badge mb-5">
+        <div class="absolute -top-2.5 -right-2 bg-emerald-400 text-emerald-950 text-[10px] font-black px-2 py-0.5 rounded-full border border-white shadow">⭐ BREAKTHROUGH</div>
+        <span class="text-xs font-black tracking-wide">AUTONOMOUS SOS</span>
+        <p class="text-[9px] text-emerald-100">Standalone Rescue • No Smartphone</p>
+      </div>
+
+      <!-- Arrow -->
+      <div class="w-0.5 h-6 bg-slate-300 mb-2"></div>
+
+      <!-- Step 1: Fall Impact Spike & 92dBA Siren -->
+      <div class="w-full bg-white border border-emerald-100 rounded-2xl p-4 text-center shadow-card mb-4 flex flex-col items-center">
+        <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-2">
+          <!-- Fall Siren Alarm Icon -->
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+          </svg>
+        </div>
+        <span class="text-xs font-bold text-slate-800">Severe Fall Spike</span>
+        <span class="text-[10px] text-slate-500 mt-1">IMU Impact + 5s Inactivity 92dBA Handle Siren Sounds</span>
+      </div>
+
+      <!-- Arrow -->
+      <div class="w-0.5 h-6 bg-slate-300 mb-2"></div>
+
+      <!-- Step 2: Direct Govt 112 Dialing -->
+      <div class="w-full bg-white border border-emerald-100 rounded-2xl p-4 text-center shadow-card mb-4 flex flex-col items-center">
+        <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-2">
+          <!-- National Emblem / Emergency 112 Icon -->
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+          </svg>
+        </div>
+        <span class="text-xs font-bold text-slate-800">Direct Govt 112 Routing</span>
+        <span class="text-[10px] text-slate-500 mt-1">ESP32 Directly Issues AT Dial Automated GPS SMS to Police/Ambulance</span>
+      </div>
+
+      <!-- Arrow -->
+      <div class="w-0.5 h-6 bg-slate-300 mb-2"></div>
+
+      <!-- Step 3: Caregiver Cloud IoT Live Tracking -->
+      <div class="w-full bg-white border border-emerald-100 rounded-2xl p-4 text-center shadow-card mb-4 flex flex-col items-center">
+        <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-2">
+          <!-- Caregiver Cloud Map Icon -->
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          </svg>
+        </div>
+        <span class="text-xs font-bold text-slate-800">Caregiver Cloud IoT</span>
+        <span class="text-[10px] text-slate-500 mt-1">Live Map Pin • Vitals Telemetry Geofence Safe-Zone Alert</span>
+      </div>
+
+      <!-- Arrow -->
+      <div class="w-0.5 h-6 bg-slate-300 mb-2"></div>
+
+      <!-- Rescue Reward Badge Output -->
+      <div class="flex items-center gap-1.5 bg-emerald-600 text-white px-5 py-2 rounded-full shadow-badge mb-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+        </svg>
+        <span class="text-[11px] font-black uppercase tracking-wider">RAPID RESCUE</span>
+      </div>
+      <span class="text-[10px] text-slate-500 font-medium text-center">&lt; 5s Automatic Dispatch &amp; Family Notification</span>
+    </div>
+
+  </div>
+
+  <!-- ================= BOTTOM COMPLIANCE & REWARD TRUST STRIP ================= -->
+  <div class="mt-8 pt-4 border-t border-slate-200 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="text-xs font-black text-slate-900 tracking-tight">NATIONAL COMPLIANCE:</span>
+      <span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2.5 py-1 rounded-md border border-slate-200">RPwD Act 2016</span>
+      <span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2.5 py-1 rounded-md border border-slate-200">Accessible India Campaign</span>
+      <span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2.5 py-1 rounded-md border border-slate-200">ADIP Scheme Eligible</span>
+      <span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2.5 py-1 rounded-md border border-slate-200">NIST SP 800-88</span>
+    </div>
+    <div class="flex items-center gap-1.5 text-emerald-600 font-bold text-xs">
+      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+      </svg>
+      <span>100% Fail-Safe Guaranteed</span>
+    </div>
+  </div>
+
+</body>
+</html>

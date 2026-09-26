@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    * { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: #FFFFFF; }
+    .shadow-card { box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03); }
+  </style>
+</head>
+<body class="p-8 max-w-5xl mx-auto bg-white text-slate-800">
+
+  <!-- Header -->
+  <div class="border-b border-slate-200 pb-4 mb-6 flex justify-between items-end">
+    <div>
+      <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">FEASIBILITY, VIABILITY &amp; RISK MANAGEMENT</span>
+      <h1 class="text-2xl font-black text-slate-900 tracking-tight">Smart Intelligent Cane — 2×2 Analysis Framework</h1>
+    </div>
+    <div class="text-right">
+      <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold px-3 py-1 rounded-full">
+        ✓ Production Ready (TRL-6)
+      </span>
+    </div>
+  </div>
+
+  <!-- 2x2 Grid -->
+  <div class="grid grid-cols-2 gap-5 mb-6">
+    
+    <!-- Quadrant 1: Technical Feasibility -->
+    <div class="bg-white border-2 border-indigo-100 rounded-2xl p-5 shadow-card">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-sm font-black text-slate-900 uppercase tracking-wide">1. TECHNICAL FEASIBILITY</h3>
+          <p class="text-[11px] text-indigo-600 font-semibold">COTS Hardware • Multi-Sensor Redundancy</p>
+        </div>
+      </div>
+      <ul class="text-xs space-y-1.5 text-slate-600">
+        <li class="flex items-start gap-2">
+          <span class="text-indigo-500 font-bold">•</span>
+          <span><strong>ESP32-S3 FreeRTOS:</strong> Dual Xtensa @ 240MHz executing deterministic 50ms (20Hz) safety loop. Zero jitter.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-indigo-500 font-bold">•</span>
+          <span><strong>Edge AI Validated:</strong> YOLO-Fastest Int8 running at 12–15 fps on Raspberry Pi Zero 2 W (Quad Cortex-A53).</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-indigo-500 font-bold">•</span>
+          <span><strong>Signal Integrity:</strong> PCA9615 differential I²C buffers sensor data across 1.1m shaft against electrical noise.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-indigo-500 font-bold">•</span>
+          <span><strong>Mechanical CAD:</strong> 63,000+ face Blender CAD model with CNC aluminum quad-pod motorized linkages.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Quadrant 2: Operational Feasibility -->
+    <div class="bg-white border-2 border-sky-100 rounded-2xl p-5 shadow-card">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center font-bold">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-sm font-black text-slate-900 uppercase tracking-wide">2. OPERATIONAL FEASIBILITY</h3>
+          <p class="text-[11px] text-sky-600 font-semibold">Zero Learning Curve • Offline First</p>
+        </div>
+      </div>
+      <ul class="text-xs space-y-1.5 text-slate-600">
+        <li class="flex items-start gap-2">
+          <span class="text-sky-500 font-bold">•</span>
+          <span><strong>Zero Smartphone Dependency:</strong> Standalone operation; critical safety &amp; emergency alerts need no phone.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-sky-500 font-bold">•</span>
+          <span><strong>Ears-Free Bone Audio:</strong> Preserves 100% ambient auditory cues (traffic, sirens, horns) for safety.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-sky-500 font-bold">•</span>
+          <span><strong>Tactile Braille HMI:</strong> 4 embossed thumb buttons (V, E, I, P). No smartphone screen tapping required.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-sky-500 font-bold">•</span>
+          <span><strong>Battery Life:</strong> 16–18h in Normal Mode; <strong>36+ hours</strong> in Power-Save Mode with auto rail load-shedding.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Quadrant 3: Economic Viability -->
+    <div class="bg-white border-2 border-emerald-100 rounded-2xl p-5 shadow-card">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-sm font-black text-slate-900 uppercase tracking-wide">3. ECONOMIC &amp; COMMERCIAL VIABILITY</h3>
+          <p class="text-[11px] text-emerald-600 font-semibold">₹8,000–12,000 BOM • 70–90% Cost Disruption</p>
+        </div>
+      </div>
+      <ul class="text-xs space-y-1.5 text-slate-600">
+        <li class="flex items-start gap-2">
+          <span class="text-emerald-500 font-bold">•</span>
+          <span><strong>Market Size:</strong> 1.2 Crore visually impaired Indians (WHO 2023). Addressable Market: <strong>₹9,600 Crore</strong>.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-emerald-500 font-bold">•</span>
+          <span><strong>Price Disruption:</strong> ₹8K–12K unit cost vs ₹50,000 (WeWALK) or ₹30,000 (Sunu Band) imported alternatives.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-emerald-500 font-bold">•</span>
+          <span><strong>Revenue Channels:</strong> B2G (ADIP scheme subsidy), B2B (Hospitals/NGOs), and Caregiver IoT cloud subscription.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-emerald-500 font-bold">•</span>
+          <span><strong>Financial ROI:</strong> Break-even at 1,500 units; projected <strong>18× ROI</strong> over 3 years of scaled distribution.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Quadrant 4: National Policy & Scalability -->
+    <div class="bg-white border-2 border-amber-100 rounded-2xl p-5 shadow-card">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path>
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-sm font-black text-slate-900 uppercase tracking-wide">4. GOVERNMENT POLICY INTEGRATION</h3>
+          <p class="text-[11px] text-amber-600 font-semibold">Make in India • Statutory Compliance</p>
+        </div>
+      </div>
+      <ul class="text-xs space-y-1.5 text-slate-600">
+        <li class="flex items-start gap-2">
+          <span class="text-amber-500 font-bold">•</span>
+          <span><strong>Accessible India Campaign:</strong> Directly fulfills Sugamya Bharat Abhiyan barrier-free mobility objectives.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-amber-500 font-bold">•</span>
+          <span><strong>RPwD Act 2016:</strong> Full compliance with Section 42 (Accessibility) and Section 25 (Healthcare &amp; Assistive Tech).</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-amber-500 font-bold">•</span>
+          <span><strong>ADIP Scheme Eligibility:</strong> Qualified under Ministry of Social Justice &amp; Empowerment for free/subsidized distribution.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-amber-500 font-bold">•</span>
+          <span><strong>Domestic SMT Manufacturing:</strong> 100% standard COTS components, fabricated via Indian PCB houses.</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Risk Analysis & Mitigation Matrix (Crucial for SIH Evaluators) -->
+  <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 shadow-card">
+    <div class="flex items-center justify-between mb-3">
+      <h3 class="text-sm font-black text-slate-900 uppercase tracking-wide flex items-center gap-2">
+        <span class="text-rose-600">⚠️</span> KEY CHALLENGES &amp; RIGOROUS MITIGATION STRATEGIES
+      </h3>
+      <span class="text-[10px] font-bold text-slate-500">Evaluator Defense Framework</span>
+    </div>
+
+    <div class="grid grid-cols-2 gap-3 text-xs">
+      
+      <!-- Risk 1 -->
+      <div class="bg-white p-3 rounded-xl border border-slate-200">
+        <div class="flex items-center justify-between mb-1">
+          <span class="font-bold text-rose-600">1. Edge AI / Vision Failure in Glare &amp; Dust</span>
+          <span class="text-[9px] bg-rose-50 text-rose-700 px-2 py-0.5 rounded font-bold">Technical Risk</span>
+        </div>
+        <p class="text-slate-600 text-[11px]">
+          <strong>Mitigation:</strong> Sensor fusion fallback. If optical camera confidence drops below 60%, deterministic Ultrasonic (SEN1) and Laser ToF (SEN2) automatically take over safety haptics.
+        </p>
+      </div>
+
+      <!-- Risk 2 -->
+      <div class="bg-white p-3 rounded-xl border border-slate-200">
+        <div class="flex items-center justify-between mb-1">
+          <span class="font-bold text-rose-600">2. OS Freeze / Raspberry Pi Kernel Panic</span>
+          <span class="text-[9px] bg-rose-50 text-rose-700 px-2 py-0.5 rounded font-bold">Reliability Risk</span>
+        </div>
+        <p class="text-slate-600 text-[11px]">
+          <strong>Mitigation:</strong> Asymmetric dual-core architecture. The ESP32-S3 runs independently on FreeRTOS. Obstacle alerts, drop-off detection, and LTE SOS continue with Pi dead.
+        </p>
+      </div>
+
+      <!-- Risk 3 -->
+      <div class="bg-white p-3 rounded-xl border border-slate-200">
+        <div class="flex items-center justify-between mb-1">
+          <span class="font-bold text-rose-600">3. Mechanical Tip Motor Stall on Stones</span>
+          <span class="text-[9px] bg-rose-50 text-rose-700 px-2 py-0.5 rounded font-bold">Mechanical Risk</span>
+        </div>
+        <p class="text-slate-600 text-[11px]">
+          <strong>Mitigation:</strong> TI DRV8830 overcurrent stall detection auto-cuts motor power within 15ms. Dual mechanical return springs automatically retract the linkages safely.
+        </p>
+      </div>
+
+      <!-- Risk 4 -->
+      <div class="bg-white p-3 rounded-xl border border-slate-200">
+        <div class="flex items-center justify-between mb-1">
+          <span class="font-bold text-rose-600">4. Cellular 4G Dead-Zones in Rural Areas</span>
+          <span class="text-[9px] bg-rose-50 text-rose-700 px-2 py-0.5 rounded font-bold">Connectivity Risk</span>
+        </div>
+        <p class="text-slate-600 text-[11px]">
+          <strong>Mitigation:</strong> Multi-band SIM7600G-H module falls back to 2G GSM SMS. In local dead zones, 92dBA internal siren sounds and GPS coordinates buffer to flash memory.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
