@@ -9,7 +9,7 @@ export default function Hardware3DView({ onSelectComponent }) {
       id: 'full',
       title: 'Full Assembled 3D Cane',
       subtitle: 'Complete 1.26m smart assistive cane with dual vision, sensor array, and quad-pod tip',
-      image: '/renders/shot1_1.png',
+      image: '/renders/view_full.png',
       badge: 'Overall Assembly',
       callouts: [
         { title: 'Top Microphone', desc: 'Apex acoustic voice intake directed at user mouth', pos: 'Top' },
@@ -25,7 +25,7 @@ export default function Hardware3DView({ onSelectComponent }) {
       id: 'handle',
       title: 'Handle & Top Voice Interface',
       subtitle: 'Ergonomic D-shaped thumb arch, Braille controls, top apex microphone, and forward camera',
-      image: '/renders/render_handle_1.png',
+      image: '/renders/view_handle.png',
       badge: 'Handle Subsystem',
       callouts: [
         { title: 'Top Microphone Grille', desc: 'Gold/steel acoustic port angled towards mouth for noise-free voice AI', pos: 'Apex' },
@@ -39,7 +39,7 @@ export default function Hardware3DView({ onSelectComponent }) {
       id: 'shaft',
       title: 'Shaft Electronics & Dual PIRs',
       subtitle: 'Split-shell aluminum channel housing dual processors, cellular modem, and spatial PIRs',
-      image: '/renders/render_shaft_1.png',
+      image: '/renders/view_shaft.png',
       badge: 'Shaft Subsystem',
       callouts: [
         { title: 'Upper PIR Sensor (SEN3)', desc: 'Translucent faceted Fresnel dome detecting approaching pedestrians', pos: 'Upper Collar' },
@@ -53,7 +53,7 @@ export default function Hardware3DView({ onSelectComponent }) {
       id: 'tip',
       title: 'Adaptive Tip, Bottom Cam & Ultrasonic',
       subtitle: 'Ground-facing vision, dual-transducer acoustic ranging, and motorized quad-pod legs',
-      image: '/renders/render_tip_1.png',
+      image: '/renders/view_tip.png',
       badge: 'Tip Subsystem',
       callouts: [
         { title: 'Bottom Pavement Camera', desc: 'Angled 35° downward for real-time curb, pothole, and drop-off segmentation', pos: 'Collar' },
@@ -104,7 +104,7 @@ export default function Hardware3DView({ onSelectComponent }) {
             <p className="text-xs text-slate-400 mt-0.5">{current.subtitle}</p>
           </div>
           <span className="px-3 py-1 text-xs font-medium rounded-lg bg-slate-800 text-slate-300 self-start md:self-auto flex items-center gap-1.5">
-            <Sparkles size={13} className="text-amber-400" /> New Hardware Integrated
+            <Sparkles size={13} className="text-amber-400" /> 3D Concept Render
           </span>
         </div>
 
@@ -129,7 +129,7 @@ export default function Hardware3DView({ onSelectComponent }) {
           {/* Feature Callouts List */}
           <div className="lg:col-span-5 space-y-3">
             <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
-              Key Features Visible in this Angle:
+              Key Features in this Subsystem:
             </h4>
             <div className="space-y-2.5 max-h-[420px] overflow-y-auto pr-1">
               {current.callouts.map((c, i) => (
