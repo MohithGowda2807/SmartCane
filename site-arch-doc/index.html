@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Intelligent Cane — Architecture Document Rev A</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #2563EB; --blue-light: #EFF6FF; --blue-mid: #DBEAFE;
+      --slate: #0F172A; --slate-mid: #334155; --slate-light: #94A3B8;
+      --gray: #F8FAFC; --gray-mid: #F1F5F9; --border: #E2E8F0;
+      --red: #DC2626; --green: #16A34A; --amber: #D97706;
+      --purple: #7C3AED; --cyan: #0891B2; --pink: #DB2777; --emerald: #059669;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; background: #FFFFFF; color: var(--slate); line-height: 1.6; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between; height: 64px;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 12px; }
+    .nav-badge {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--blue), #60A5FA);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Fredoka', sans-serif; font-weight: 700; color: #fff; font-size: 15px;
+      box-shadow: 0 4px 12px rgba(37,99,235,0.25);
+    }
+    .nav-title { font-family: 'Fredoka', sans-serif; font-size: 18px; font-weight: 600; color: var(--slate); }
+    .nav-sub { font-size: 11px; color: var(--slate-light); font-weight: 400; }
+    .nav-tags { display: flex; gap: 8px; align-items: center; }
+    .tag {
+      padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+    }
+    .tag-blue { background: var(--blue-mid); color: var(--blue); border: 1px solid #BFDBFE; }
+    .tag-amber { background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--gray) 0%, var(--blue-light) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 60px 2rem 50px;
+      text-align: center;
+    }
+    .hero h1 { font-family: 'Fredoka', sans-serif; font-size: 42px; font-weight: 700; color: var(--slate); line-height: 1.15; }
+    .hero h1 span { color: var(--blue); }
+    .hero p { margin-top: 12px; color: var(--slate-mid); font-size: 15px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .hero-stats { margin-top: 32px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+    .stat { text-align: center; }
+    .stat-num { font-family: 'Fredoka', sans-serif; font-size: 32px; font-weight: 700; color: var(--blue); }
+    .stat-label { font-size: 12px; color: var(--slate-light); font-weight: 500; margin-top: 2px; }
+
+    /* LAYOUT */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    section { padding: 56px 0; }
+    section + section { border-top: 1px solid var(--border); }
+    .section-header { margin-bottom: 32px; }
+    .section-tag { font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); margin-bottom: 6px; }
+    .section-title { font-family: 'Fredoka', sans-serif; font-size: 26px; font-weight: 700; color: var(--slate); }
+    .section-desc { font-size: 14px; color: var(--slate-mid); margin-top: 6px; }
+
+    /* DOMAIN CARDS */
+    .domain-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .domain-card {
+      background: #FFFFFF; border: 1.5px solid var(--border); border-radius: 14px;
+      padding: 22px 24px; transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .domain-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.07); border-color: #CBD5E1; }
+    .domain-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .domain-icon {
+      width: 38px; height: 38px; border-radius: 10px; font-size: 17px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .domain-name { font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: var(--slate); line-height: 1.2; }
+    .domain-badge { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 10px; margin-top: 2px; display: inline-block; }
+    .domain-desc { font-size: 12.5px; color: var(--slate-mid); line-height: 1.55; }
+
+    /* PIN TABLE */
+    .table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    thead { background: var(--gray-mid); }
+    th { padding: 12px 16px; text-align: left; font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--slate-mid); border-bottom: 1px solid var(--border); }
+    td { padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--slate); }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--gray); }
+    .mono { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--blue); background: var(--blue-light); padding: 2px 6px; border-radius: 4px; }
+    .rail { font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 2px 7px; border-radius: 4px; font-weight: 500; white-space: nowrap; }
+    .rail-3v3 { background: #EDE9FE; color: #5B21B6; }
+    .rail-5v { background: #FEF3C7; color: #92400E; }
+    .rail-batt { background: #FEE2E2; color: #991B1B; }
+    .rail-nc { background: var(--gray-mid); color: var(--slate-light); }
+    .crit { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 8px; white-space: nowrap; }
+    .crit-hard { background: #FEE2E2; color: #991B1B; }
+    .crit-ai { background: var(--blue-mid); color: #1D4ED8; }
+    .crit-safety { background: #FEF3C7; color: #92400E; }
+    .crit-ui { background: #ECFDF5; color: #065F46; }
+    .crit-infra { background: #F3E8FF; color: #6B21A8; }
+
+    /* POWER RAILS */
+    .rail-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+    .rail-card {
+      border-radius: 12px; padding: 18px 20px; border: 1.5px solid;
+    }
+    .rail-card h4 { font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 500; margin-bottom: 6px; }
+    .rail-card p { font-size: 12.5px; line-height: 1.5; }
+    .rail-card .meta { margin-top: 10px; font-size: 11px; font-weight: 600; opacity: 0.75; }
+
+    /* HARNESS */
+    .harness-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 640px) { .harness-grid { grid-template-columns: 1fr; } }
+    .harness-card {
+      border-radius: 12px; border: 1.5px solid var(--border);
+      padding: 18px 20px; background: #FFFFFF;
+    }
+    .harness-card h4 { font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: var(--slate); margin-bottom: 10px; }
+    .wire-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .wire-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .wire-label { font-size: 12px; color: var(--slate-mid); }
+    .wire-spec { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--slate-light); margin-left: auto; }
+
+    /* FOOTER */
+    footer { background: var(--gray); border-top: 1px solid var(--border); padding: 28px 2rem; text-align: center; }
+    footer p { font-size: 12px; color: var(--slate-light); }
+    footer strong { color: var(--blue); font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <div class="nav-badge">SC</div>
+    <div>
+      <div class="nav-title">Smart Intelligent Cane</div>
+      <div class="nav-sub">Architecture Document — Rev A</div>
+    </div>
+  </div>
+  <div class="nav-tags">
+    <span class="tag tag-blue">SIH 2026</span>
+    <span class="tag tag-amber">✦ Rev A · 23 Pages</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Hardware Architecture<br /><span>Document Rev A</span></h1>
+  <p>Complete pin-level hardware specification covering all 7 system domains, GPIO assignments, power rail definitions, and internal wiring harness topology.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">7</div><div class="stat-label">System Domains</div></div>
+    <div class="stat"><div class="stat-num">52</div><div class="stat-label">Components</div></div>
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Power Rails</div></div>
+    <div class="stat"><div class="stat-num">50ms</div><div class="stat-label">Safety Loop Period</div></div>
+    <div class="stat"><div class="stat-num">36h+</div><div class="stat-label">Power-Save Runtime</div></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- SECTION 1: DOMAINS -->
+  <section id="domains">
+    <div class="section-header">
+      <div class="section-tag">§ 1 — System Overview</div>
+      <div class="section-title">7 System Architecture Domains</div>
+      <div class="section-desc">Dual-processor layered architecture: ESP32-S3 hard real-time safety controller + Raspberry Pi Zero 2 W edge AI gateway.</div>
+    </div>
+    <div class="domain-grid">
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-icon" style="background:#EFF6FF;">🔵</div>
+          <div>
+            <div class="domain-name">1. Perception & Sensor Array</div>
+            <span class="domain-badge" style="background:#DBEAFE;color:#1D4ED8;">Multi-Modal Sensing</span>
+          </div>
+        </div>
+        <p class="domain-desc">Dual-tier optical, ultrasonic, thermal, and spatial environmental perception with 360° coverage from head height to pavement level. 9 sensor nodes across 5 modalities.</p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-icon" style="background:#FEF2F2;">🔴</div>
+          <div>
+            <div class="domain-name">2. Real-Time Safety (RTOS)</div>
+            <span class="domain-badge" style="background:#FEE2E2;color:#991B1B;">Always-On Hard Safety Path</span>
+          </div>
+        </div>
+        <p class="domain-desc">ESP32-S3 running deterministic 50ms FreeRTOS safety loops. Operates completely autonomously even if Pi, cellular, or cloud are offline. Hardware watchdog in &lt;10ms.</p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-icon" style="background:#F5F3FF;">🟣</div>
+          <div>
+            <div class="domain-name">3. Edge AI & High-Level Gateway</div>
+            <span class="domain-badge" style="background:#EDE9FE;color:#5B21B6;">Computer Vision & Voice NLP</span>
+          </div>
+        </div>
+        <p class="domain-desc">Raspberry Pi Zero 2 W hosting dual-camera vision models (YOLO-Fastest / MobileNet), Whisper.tflite speech recognition, and Gemini multimodal cloud synchronizer.</p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-icon" style="background:#ECFDF5;">🟢</div>
+          <div>
+            <div class="domain-name">4. Audio Assistant & Tactile HMI</div>
+            <span class="domain-badge" style="background:#D1FAE5;color:#065F46;">Assistive Ear Link & Haptics</span>
+          </div>
+        </div>
+        <p class="domain-desc">Hands-free bone-conduction Bluetooth ear assistant, top apex voice microphone, vibrotactile haptic palm cues (DRV2605L), and 4 tactile Braille buttons with SOS.</p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-icon" style="background:#FFFBEB;">🟡</div>
+          <div>
+            <div class="domain-name">5. Physical & Mechanical Architecture</div>
+            <span class="domain-badge" style="background:#FEF3C7;color:#92400E;">Quad-Pod Adaptive Tip</span>
+          </div>
+        </div>
+        <p class="domain-desc">Ergonomic thumb-arch handle, modular split-housing electronics channel, shock-absorbing shaft, and motor-deployed quad-pod adaptive stabilization tip (DRV8830).</p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-icon" style="background:#ECFEFF;">🔵</div>
+          <div>
+            <div class="domain-name">6. Power & Energy Distribution</div>
+            <span class="domain-badge" style="background:#CFFAFE;color:#155E75;">5 Switched Rails + 1S2P</span>
+          </div>
+        </div>
+        <p class="domain-desc">6800 mAh Li-Ion 1S2P battery pack feeding 5 isolated switched voltage rails: 3V3_MAIN, 5V_PI, 5V_AUX, VBAT_MODEM, VBAT_MOTOR with 4-stage power-save state machine.</p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-icon" style="background:#FDF2F8;">🟣</div>
+          <div>
+            <div class="domain-name">7. Wireless, SOS & Caregiver Cloud</div>
+            <span class="domain-badge" style="background:#FCE7F3;color:#9D174D;">Dual-Path Emergency Link</span>
+          </div>
+        </div>
+        <p class="domain-desc">SIM7600G-H LTE Cat-4 modem with hardware GNSS/GPS. Dual-link: ESP32-S3 UART for fail-safe SOS + RPi USB for cloud telemetry and Gemini API queries.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: PIN ASSIGNMENTS -->
+  <section id="pins">
+    <div class="section-header">
+      <div class="section-tag">§ 2 — GPIO & Interface Pin Assignments</div>
+      <div class="section-title">ESP32-S3 GPIO Assignment Table</div>
+      <div class="section-desc">Complete pin mapping for ESP32-S3-WROOM-1. Dual-core 240MHz Xtensa LX7 with 8MB PSRAM. Primary safety controller with deterministic FreeRTOS task scheduling.</div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>GPIO</th><th>Signal / Net Name</th><th>Direction</th><th>Interface</th><th>Connected To</th><th>Safety Class</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="mono">GPIO4</span></td><td>I2C_SDA_MAIN</td><td>Bidirectional</td><td>I2C 400kHz</td><td>IMU (BMI270), ToF (VL53L1X), Haptic (DRV2605L), Tip Motor (DRV8830), Expander (TCA9555), PPG (MAX30102)</td><td><span class="crit crit-hard">HARD SAFETY</span></td></tr>
+          <tr><td><span class="mono">GPIO5</span></td><td>I2C_SCL_MAIN</td><td>Output</td><td>I2C 400kHz</td><td>Main I2C Bus Clock</td><td><span class="crit crit-hard">HARD SAFETY</span></td></tr>
+          <tr><td><span class="mono">GPIO6</span></td><td>UART_TX_MODEM</td><td>Output</td><td>UART 115200 baud</td><td>SIM7600G-H LTE Modem RX</td><td><span class="crit crit-hard">HARD SAFETY</span></td></tr>
+          <tr><td><span class="mono">GPIO7</span></td><td>UART_RX_MODEM</td><td>Input</td><td>UART 115200 baud</td><td>SIM7600G-H LTE Modem TX</td><td><span class="crit crit-hard">HARD SAFETY</span></td></tr>
+          <tr><td><span class="mono">GPIO10</span></td><td>ULTRASONIC_TRIG</td><td>Output</td><td>GPIO Pulse (10µs)</td><td>JSN-SR04T Waterproof Ultrasonic Trigger</td><td><span class="crit crit-hard">HARD SAFETY</span></td></tr>
+          <tr><td><span class="mono">GPIO11</span></td><td>ULTRASONIC_ECHO</td><td>Input</td><td>GPIO Pulse Capture</td><td>JSN-SR04T Ultrasonic Echo (0-450cm range)</td><td><span class="crit crit-hard">HARD SAFETY</span></td></tr>
+          <tr><td><span class="mono">GPIO12</span></td><td>IMU_INT1</td><td>Input (IRQ)</td><td>Interrupt (Active-Low)</td><td>BMI270 INT1 (Fall detect / threshold)</td><td><span class="crit crit-hard">HARD SAFETY</span></td></tr>
+          <tr><td><span class="mono">GPIO13</span></td><td>SOS_BUTTON_WAKE</td><td>Input (Wake)</td><td>Deep Sleep Wake GPIO</td><td>Guarded SOS Button (2s hold, pull-up 3V3)</td><td><span class="crit crit-hard">HARD SAFETY</span></td></tr>
+          <tr><td><span class="mono">GPIO14</span></td><td>MODEM_PWRKEY</td><td>Output</td><td>GPIO (Active-Low pulse)</td><td>SIM7600G-H PWRKEY (500ms pulse to toggle power)</td><td><span class="crit crit-hard">HARD SAFETY</span></td></tr>
+          <tr><td><span class="mono">GPIO15</span></td><td>MOISTURE_ADC</td><td>Input (ADC)</td><td>ADC Channel 4</td><td>Gold-Plated Electrode Voltage Divider at tip</td><td><span class="crit crit-hard">HARD SAFETY</span></td></tr>
+          <tr><td><span class="mono">GPIO16</span></td><td>BUTTON_V_VOICE</td><td>Input (IRQ)</td><td>GPIO Active-Low 10ms debounce</td><td>Braille Button "V" — Voice AI Activate</td><td><span class="crit crit-ui">USER HMI</span></td></tr>
+          <tr><td><span class="mono">GPIO17</span></td><td>BUTTON_E_ENV</td><td>Input (IRQ)</td><td>GPIO Active-Low 10ms debounce</td><td>Braille Button "E" — Environment Summary</td><td><span class="crit crit-ui">USER HMI</span></td></tr>
+          <tr><td><span class="mono">GPIO18</span></td><td>BUTTON_I_INCIDENT</td><td>Input (IRQ)</td><td>GPIO Active-Low 10ms debounce</td><td>Braille Button "I" — Tag Incident/GPS</td><td><span class="crit crit-ui">USER HMI</span></td></tr>
+          <tr><td><span class="mono">GPIO19</span></td><td>BUTTON_P_POWER</td><td>Input (IRQ)</td><td>GPIO Active-Low 10ms debounce</td><td>Braille Button "P" — Power/Status Query</td><td><span class="crit crit-ui">USER HMI</span></td></tr>
+          <tr><td><span class="mono">GPIO35</span></td><td>I2S0_BCK</td><td>Output</td><td>I2S Bit Clock</td><td>MEMS Microphones SPH0645 (pair) + MAX98357A</td><td><span class="crit crit-safety">SAFETY AUDIO</span></td></tr>
+          <tr><td><span class="mono">GPIO36</span></td><td>I2S0_WS</td><td>Output</td><td>I2S Word Select</td><td>MEMS Microphone array (L/R channel)</td><td><span class="crit crit-safety">SAFETY AUDIO</span></td></tr>
+          <tr><td><span class="mono">GPIO37</span></td><td>I2S0_DOUT</td><td>Output</td><td>I2S Data Out</td><td>MAX98357A Class-D amplifier data in</td><td><span class="crit crit-safety">SAFETY AUDIO</span></td></tr>
+          <tr><td><span class="mono">GPIO38</span></td><td>I2S0_DIN</td><td>Input</td><td>I2S Data In</td><td>SPH0645LM4H MEMS microphone data out</td><td><span class="crit crit-safety">SAFETY AUDIO</span></td></tr>
+          <tr><td><span class="mono">GPIO39</span></td><td>UART_TX_PI</td><td>Output</td><td>UART 921600 baud</td><td>Raspberry Pi Zero 2 W UART0 RX (sensor bridge)</td><td><span class="crit crit-ai">EDGE AI</span></td></tr>
+          <tr><td><span class="mono">GPIO40</span></td><td>UART_RX_PI</td><td>Input</td><td>UART 921600 baud</td><td>Raspberry Pi Zero 2 W UART0 TX (command ack)</td><td><span class="crit crit-ai">EDGE AI</span></td></tr>
+          <tr><td><span class="mono">GPIO41</span></td><td>PI_POWER_CTRL</td><td>Output</td><td>GPIO (TPS22918 EN)</td><td>5V_PI rail load switch enable (Pi power control)</td><td><span class="crit crit-infra">POWER INFRA</span></td></tr>
+          <tr><td><span class="mono">GPIO42</span></td><td>UPPER_PIR_INT</td><td>Input (IRQ)</td><td>Interrupt (Active-High)</td><td>Upper PIR sensor (chest height, Z=1.045m)</td><td><span class="crit crit-safety">SAFETY AUX</span></td></tr>
+          <tr><td><span class="mono">GPIO48</span></td><td>TOF_XSHUT</td><td>Output</td><td>GPIO Active-Low reset</td><td>VL53L1X XSHUT — sensor enable/standby</td><td><span class="crit crit-hard">HARD SAFETY</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SECTION 3: POWER RAILS -->
+  <section id="rails">
+    <div class="section-header">
+      <div class="section-tag">§ 3 — Power Rail Definitions</div>
+      <div class="section-title">5 Isolated Switched Voltage Rails</div>
+      <div class="section-desc">Battery: 2× Panasonic NCR18650GA in 1S2P parallel configuration. Nominal: 3.6V, max: 4.2V, cut-off: 2.8V. Total capacity: 6800 mAh (24.5 Wh).</div>
+    </div>
+    <div class="rail-grid">
+      <div class="rail-card" style="background:#F5F3FF;border-color:#C4B5FD;">
+        <h4 style="color:#5B21B6;">3V3_MAIN</h4>
+        <p style="color:#4C1D95;font-size:13px;"><strong>Always-On Safety Rail</strong><br/>TPS63020 Buck-Boost (96% eff). Powers ESP32-S3, IMU, ToF, PIRs, Haptic IC, Moisture Sensor, PPG sensor, and all safety-critical logic. Regulated from 3.0V–4.2V cell with no interruption.</p>
+        <div class="meta" style="color:#6D28D9;">Regulator: TPS63020 · 2.4MHz · Up to 2.0A · Always-On</div>
+      </div>
+      <div class="rail-card" style="background:#FEF3C7;border-color:#FDE68A;">
+        <h4 style="color:#92400E;">5V_PI</h4>
+        <p style="color:#78350F;font-size:13px;"><strong>Switched Raspberry Pi Rail</strong><br/>TPS61088 Boost → TPS22918 switch. Powers RPi Zero 2 W, CAM1 (OV5647, 250mA), CAM2 (CMOS, 190mA). Cut by TCA9555 when battery &lt;20% to extend runtime to 36+ hours.</p>
+        <div class="meta" style="color:#B45309;">Regulator: TPS61088 · 1.0MHz · 3.5A max · Switchable</div>
+      </div>
+      <div class="rail-card" style="background:#FEF3C7;border-color:#FDE68A;">
+        <h4 style="color:#92400E;">5V_AUX</h4>
+        <p style="color:#78350F;font-size:13px;"><strong>Switched Peripheral Rail</strong><br/>TPS61088 Boost (shared converter, separate switch). Powers JSN-SR04T ultrasonic (15mA), MAX98357A audio amp (600mA peak). Stays ON in Power-Save so ultrasonic safety still works.</p>
+        <div class="meta" style="color:#B45309;">Regulator: TPS61088 (shared) · Independent TPS22918 gate</div>
+      </div>
+      <div class="rail-card" style="background:#FEE2E2;border-color:#FCA5A5;">
+        <h4 style="color:#991B1B;">VBAT_MODEM</h4>
+        <p style="color:#7F1D1D;font-size:13px;"><strong>Direct Cell Modem Rail</strong><br/>Fused direct connection from battery with 1000µF bulk capacitor to absorb 2A RF bursts. ESP32-S3 controls PWRKEY. Activated for SOS dispatch or cloud telemetry sync only.</p>
+        <div class="meta" style="color:#B91C1C;">No regulator (direct VSYS) · 2A peak RF · 1000µF buffer cap</div>
+      </div>
+      <div class="rail-card" style="background:#ECFDF5;border-color:#86EFAC;">
+        <h4 style="color:#065F46;">VBAT_MOTOR</h4>
+        <p style="color:#064E3B;font-size:13px;"><strong>Fused Actuator Rail</strong><br/>Fused direct 3.7V battery rail via resettable PTC fuse (500mA hold). Powers DRV8830 tip motor driver for 1.2s deployment pulses. Hardware current limit prevents stall damage.</p>
+        <div class="meta" style="color:#047857;">Fused VSYS · PTC 500mA resettable · DRV8830 H-bridge</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: HARNESS -->
+  <section id="harness">
+    <div class="section-header">
+      <div class="section-tag">§ 4 — Internal Wiring Harness</div>
+      <div class="section-title">Cable & Connector Topology</div>
+      <div class="section-desc">All internal cables are routed through the shaft's aluminum mounting rail channel. Primary interconnect is a 20-pin keyed harness at Joint J1 between handle and shaft sections.</div>
+    </div>
+    <div class="harness-grid">
+      <div class="harness-card">
+        <h4>🔌 Joint J1 — Handle ↔ Shaft (20-pin Keyed)</h4>
+        <div class="wire-row"><div class="wire-dot" style="background:#2563EB;"></div><span class="wire-label">3V3_MAIN power + GND pair</span><span class="wire-spec">22 AWG · Red/Blk</span></div>
+        <div class="wire-row"><div class="wire-dot" style="background:#7C3AED;"></div><span class="wire-label">I2C_SDA + SCL (Handle bus)</span><span class="wire-spec">26 AWG · twisted pair</span></div>
+        <div class="wire-row"><div class="wire-dot" style="background:#059669;"></div><span class="wire-label">I2S BCK + WS + DATA (Mic audio)</span><span class="wire-spec">26 AWG · shielded</span></div>
+        <div class="wire-row"><div class="wire-dot" style="background:#D97706;"></div><span class="wire-label">5× GPIO lines (Buttons + SOS)</span><span class="wire-spec">28 AWG · ribbon</span></div>
+        <div class="wire-row"><div class="wire-dot" style="background:#DC2626;"></div><span class="wire-label">5V_AUX for speaker amplifier</span><span class="wire-spec">22 AWG · Red</span></div>
+        <div class="wire-row"><div class="wire-dot" style="background:#94A3B8;"></div><span class="wire-label">CSI-2 FFC cable (22-pin)</span><span class="wire-spec">FFC · 0.5mm pitch</span></div>
+      </div>
+      <div class="harness-card">
+        <h4>🔌 Joint J2 — Shaft ↔ Tip (12-pin Waterproof)</h4>
+        <div class="wire-row"><div class="wire-dot" style="background:#2563EB;"></div><span class="wire-label">3V3_MAIN + 5V_AUX + GND</span><span class="wire-spec">20 AWG · shielded</span></div>
+        <div class="wire-row"><div class="wire-dot" style="background:#7C3AED;"></div><span class="wire-label">I2C_SDA + SCL (Tip sensors)</span><span class="wire-spec">PCA9615 differential</span></div>
+        <div class="wire-row"><div class="wire-dot" style="background:#059669;"></div><span class="wire-label">ULTRASONIC TRIG + ECHO</span><span class="wire-spec">26 AWG · twisted pair</span></div>
+        <div class="wire-row"><div class="wire-dot" style="background:#D97706;"></div><span class="wire-label">MOISTURE_ADC analog</span><span class="wire-spec">28 AWG · shielded</span></div>
+        <div class="wire-row"><div class="wire-dot" style="background:#DC2626;"></div><span class="wire-label">VBAT_MOTOR for tip actuator</span><span class="wire-spec">20 AWG · fused line</span></div>
+      </div>
+      <div class="harness-card">
+        <h4>📷 Camera FFC Cables</h4>
+        <div class="wire-row"><div class="wire-dot" style="background:#8B5CF6;"></div><span class="wire-label">CAM1: OV5647 → RPi CSI-2</span><span class="wire-spec">22-pin · 150mm · 0.5mm</span></div>
+        <div class="wire-row"><div class="wire-dot" style="background:#6D28D9;"></div><span class="wire-label">CAM2: USB UVC → RPi USB OTG</span><span class="wire-spec">USB micro · 200mm</span></div>
+        <div class="wire-row"><div class="wire-dot" style="background:#94A3B8;"></div><span class="wire-label">Routing: via shaft channel</span><span class="wire-spec">Cable guide clips</span></div>
+      </div>
+      <div class="harness-card">
+        <h4>🔋 Battery & Charging</h4>
+        <div class="wire-row"><div class="wire-dot" style="background:#DC2626;"></div><span class="wire-label">Cell + (VSYS) to BMS/PCM</span><span class="wire-spec">16 AWG · nickel strip</span></div>
+        <div class="wire-row"><div class="wire-dot" style="background:#1D4ED8;"></div><span class="wire-label">BQ25895 USB-C PD charger</span><span class="wire-spec">USB-C port at shaft base</span></div>
+        <div class="wire-row"><div class="wire-dot" style="background:#059669;"></div><span class="wire-label">BQ27441 Fuel Gauge I2C</span><span class="wire-spec">26 AWG · to ESP32-S3</span></div>
+        <div class="wire-row"><div class="wire-dot" style="background:#D97706;"></div><span class="wire-label">NTC thermistor (cell temp)</span><span class="wire-spec">28 AWG · to ADC</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: RASPBERRY PI PINS -->
+  <section id="pi-pins">
+    <div class="section-header">
+      <div class="section-tag">§ 5 — Raspberry Pi Zero 2 W Interface</div>
+      <div class="section-title">Pi Interface & Linux Stack</div>
+      <div class="section-desc">Broadcom BCM2710A1 · Quad-Core Cortex-A53 @ 1.0 GHz · 512MB LPDDR2 RAM · 64-bit Raspberry Pi OS Lite</div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Pi Interface</th><th>Net / Signal</th><th>Function</th><th>Software Stack</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="mono">CSI-2 (22-pin)</span></td><td>CAM1_MAIN</td><td>OV5647 5MP forward camera — scene comprehension, OCR, sign reading</td><td>V4L2 driver → OpenCV + YOLO-Fastest TFLite</td></tr>
+          <tr><td><span class="mono">USB OTG</span></td><td>CAM2_PAVEMENT</td><td>120° wide-angle downward camera — pavement & stair segmentation</td><td>UVC webcam driver → MobileNetV3-SSD segmentation</td></tr>
+          <tr><td><span class="mono">UART0 (GPIO14/15)</span></td><td>SENSOR_BRIDGE</td><td>ESP32-S3 sensor data bridge (IMU readings, button events, hazard flags)</td><td>pyserial 921600baud daemon → event dispatcher</td></tr>
+          <tr><td><span class="mono">BT 5.0 (onboard)</span></td><td>AUDIO_LINK</td><td>A2DP audio stream to user's bone-conduction headphones</td><td>BlueALSA → ALSA → festival TTS + audio beeps</td></tr>
+          <tr><td><span class="mono">Wi-Fi (onboard)</span></td><td>CLOUD_SYNC</td><td>Telemetry upload, Gemini API, map downloads when in range</td><td>requests/aiohttp → Firebase RTDB / Gemini REST API</td></tr>
+          <tr><td><span class="mono">GPIO (Mini-UART)</span></td><td>PI_HEARTBEAT</td><td>Periodic 1Hz pulse to ESP32-S3 watchdog confirming Pi is alive</td><td>GPIO daemon → signals ESP32 to keep 5V_PI enabled</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>Smart Intelligent Cane · <strong>Architecture Document Rev A</strong> · Smart India Hackathon 2026</p>
+  <p style="margin-top:6px;">Team Submission — SIH Problem Statement #1787974252969 · Hardware Rev A · 23-Page Specification</p>
+</footer>
+
+</body>
+</html>

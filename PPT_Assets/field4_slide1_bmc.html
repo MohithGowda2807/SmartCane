@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1920px;
+      height: 1080px;
+      background-color: #FFFFFF;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      color: #0F172A;
+    }
+    .font-fredoka { font-family: 'Fredoka', cursive, sans-serif; }
+    .bmc-card {
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 14px;
+      padding: 12px 14px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .badge-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #10B981;
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fredoka', sans-serif;
+    }
+  </style>
+</head>
+<body class="p-8 flex flex-col justify-between bg-slate-50">
+
+  <!-- TOP HEADER -->
+  <div class="flex items-center justify-between pb-3 border-b-2 border-slate-200 bg-white p-4 rounded-2xl shadow-sm">
+    <div class="flex items-center gap-4">
+      <img src="team_logo.jpg" alt="VisionAI Logo" class="h-12 w-auto object-contain rounded-xl border border-slate-200">
+      <div>
+        <span class="font-fredoka text-xs font-bold text-emerald-600 tracking-widest uppercase">FIELD 4: ADDITIONAL DOCUMENTS • VALIDATION DOSSIER</span>
+        <h2 class="font-fredoka text-xl font-bold text-slate-800 leading-none">BUSINESS MODEL CANVAS (BMC) • SMART INTELLIGENT CANE</h2>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <span class="bg-emerald-100 text-emerald-800 border border-emerald-300 font-fredoka text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wide">
+        ADIP GOVT. SUBSIDY ALIGNED • ₹8,500 SCALE PRODUCTION
+      </span>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <div class="text-right">
+        <span class="font-fredoka text-xs font-bold text-blue-600 block">RVCE ASSISTIVE TECH LAB</span>
+        <span class="text-xs font-semibold text-slate-500">TEAM VisionAI • SIH 2026</span>
+      </div>
+      <div class="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center font-fredoka font-bold text-sm">
+        SIH
+      </div>
+    </div>
+  </div>
+
+  <!-- 9-BLOCK BUSINESS MODEL CANVAS GRID -->
+  <div class="grid grid-cols-5 gap-3.5 my-3 h-[750px]">
+
+    <!-- COL 1: KEY PARTNERS (8) -->
+    <div class="bmc-card">
+      <div>
+        <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+          <span class="font-fredoka text-sm font-bold text-slate-800 uppercase tracking-wide">KEY PARTNERS</span>
+          <div class="badge-num">8</div>
+        </div>
+        <div class="mt-2.5 space-y-2 text-xs text-slate-600">
+          <div class="bg-slate-50 p-2 rounded-lg border border-slate-100">
+            <b class="text-slate-900 block text-[11px]">🏛️ Government &amp; PSUs:</b>
+            ALIMCO (Manufacturing &amp; Quality), Ministry of Social Justice &amp; Empowerment (ADIP Tender).
+          </div>
+          <div class="bg-slate-50 p-2 rounded-lg border border-slate-100">
+            <b class="text-slate-900 block text-[11px]">🦯 Disability NGOs:</b>
+            National Association for the Blind (NAB), Blind People's Association (Field Trial Partners).
+          </div>
+          <div class="bg-slate-50 p-2 rounded-lg border border-slate-100">
+            <b class="text-slate-900 block text-[11px]">🏭 Production &amp; Hardware:</b>
+            Tier-1 PCB &amp; SMT Assembly (JLCPCB / Local EMS), Carbon Fiber composite molders.
+          </div>
+          <div class="bg-slate-50 p-2 rounded-lg border border-slate-100">
+            <b class="text-slate-900 block text-[11px]">🏥 Clinical Validation:</b>
+            National Institute for the Visually Handicapped (NIVH) Dehradun.
+          </div>
+        </div>
+      </div>
+      <div class="text-[10px] text-emerald-700 bg-emerald-50 p-2 rounded border border-emerald-200 font-semibold">
+        Strategic MoUs pre-aligned for mass deployment.
+      </div>
+    </div>
+
+    <!-- COL 2: KEY ACTIVITIES (7) & KEY RESOURCES (6) -->
+    <div class="flex flex-col gap-3.5">
+      <!-- 7. KEY ACTIVITIES -->
+      <div class="bmc-card flex-1">
+        <div>
+          <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+            <span class="font-fredoka text-sm font-bold text-slate-800 uppercase tracking-wide">KEY ACTIVITIES</span>
+            <div class="badge-num">7</div>
+          </div>
+          <div class="mt-2 space-y-1.5 text-xs text-slate-600">
+            <div class="p-1.5 bg-slate-50 rounded border border-slate-100">
+              <b>⚡ RTOS Firmware:</b> 50ms deterministic safety loop arbitration &amp; watchdog maintenance.
+            </div>
+            <div class="p-1.5 bg-slate-50 rounded border border-slate-100">
+              <b>🧠 Edge AI Optimization:</b> Int8 MobileNet &amp; YOLO-Fastest training on Indian street datasets.
+            </div>
+            <div class="p-1.5 bg-slate-50 rounded border border-slate-100">
+              <b>🛡️ Statutory Certifications:</b> ISO 11334-1 walking aids &amp; IEC 62366 usability testing.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. KEY RESOURCES -->
+      <div class="bmc-card flex-1">
+        <div>
+          <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+            <span class="font-fredoka text-sm font-bold text-slate-800 uppercase tracking-wide">KEY RESOURCES</span>
+            <div class="badge-num">6</div>
+          </div>
+          <div class="mt-2 space-y-1.5 text-xs text-slate-600">
+            <div class="p-1.5 bg-slate-50 rounded border border-slate-100">
+              <b>📐 IP &amp; CAD Assets:</b> 52-component custom modular chassis &amp; injection mold tooling designs.
+            </div>
+            <div class="p-1.5 bg-slate-50 rounded border border-slate-100">
+              <b>🔬 Testing Infrastructure:</b> RVCE Assistive Lab &amp; multi-sensor testing benches.
+            </div>
+            <div class="p-1.5 bg-slate-50 rounded border border-slate-100">
+              <b>👥 Interdisciplinary Team:</b> Embedded firmware, mechanical CAD, Edge ML &amp; MedTech experts.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COL 3: VALUE PROPOSITIONS (2) -->
+    <div class="bmc-card border-2 border-blue-400 bg-blue-50/20">
+      <div>
+        <div class="flex items-center justify-between pb-2 border-b border-blue-200">
+          <span class="font-fredoka text-sm font-bold text-blue-900 uppercase tracking-wide">VALUE PROPOSITIONS</span>
+          <div class="badge-num bg-blue-600">2</div>
+        </div>
+        <div class="mt-2.5 space-y-2 text-xs text-slate-700">
+          <div class="bg-white p-2.5 rounded-xl border border-blue-200 shadow-sm">
+            <span class="font-bold text-blue-900 block text-[11px]">⚡ 100% Fail-Safe Independence:</span>
+            No smartphone app required. Reflex loop prevents high-hanging branch hits &amp; EV collisions within 50ms.
+          </div>
+          <div class="bg-white p-2.5 rounded-xl border border-blue-200 shadow-sm">
+            <span class="font-bold text-blue-900 block text-[11px]">🦴 Ears-Free Bone Conduction:</span>
+            Sub-15ms directional palm haptics + bone conduction audio keep ear canals completely open for traffic.
+          </div>
+          <div class="bg-white p-2.5 rounded-xl border border-blue-200 shadow-sm">
+            <span class="font-bold text-blue-900 block text-[11px]">🚨 Autonomous Direct-AT 112 SOS:</span>
+            Cellular LTE voice call + live GPS SMS without needing an unlocked phone.
+          </div>
+          <div class="bg-white p-2.5 rounded-xl border border-blue-200 shadow-sm">
+            <span class="font-bold text-blue-900 block text-[11px]">💰 75% Cost Disruption (ADIP Ready):</span>
+            Scales to ₹8,500 (vs ₹50,000 WeWALK), enabling 100% free distribution under Government ADIP scheme.
+          </div>
+        </div>
+      </div>
+      <div class="text-[10px] text-blue-800 bg-blue-100/60 p-2 rounded-lg font-bold text-center border border-blue-300">
+        "True Dignity, Safety &amp; Independence for 1.2 Crore PwDs"
+      </div>
+    </div>
+
+    <!-- COL 4: CUSTOMER RELATIONSHIPS (4) & CHANNELS (3) -->
+    <div class="flex flex-col gap-3.5">
+      <!-- 4. CUSTOMER RELATIONSHIPS -->
+      <div class="bmc-card flex-1">
+        <div>
+          <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+            <span class="font-fredoka text-sm font-bold text-slate-800 uppercase tracking-wide">CUSTOMER RELATIONSHIPS</span>
+            <div class="badge-num">4</div>
+          </div>
+          <div class="mt-2 space-y-1.5 text-xs text-slate-600">
+            <div class="p-1.5 bg-slate-50 rounded border border-slate-100">
+              <b>🤝 NGO Trust &amp; Training:</b> Free user orientation camps with NAB certified mobility trainers.
+            </div>
+            <div class="p-1.5 bg-slate-50 rounded border border-slate-100">
+              <b>🔄 Modular Snap-Repair:</b> District-level replaceable tip/battery parts via DDRC centers.
+            </div>
+            <div class="p-1.5 bg-slate-50 rounded border border-slate-100">
+              <b>📲 Over-The-Air Upgrades:</b> LTE automated firmware updates with zero user intervention.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. CHANNELS -->
+      <div class="bmc-card flex-1">
+        <div>
+          <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+            <span class="font-fredoka text-sm font-bold text-slate-800 uppercase tracking-wide">CHANNELS</span>
+            <div class="badge-num">3</div>
+          </div>
+          <div class="mt-2 space-y-1.5 text-xs text-slate-600">
+            <div class="p-1.5 bg-slate-50 rounded border border-slate-100">
+              <b>🏛️ ADIP Govt. Camps:</b> 70% bulk channel via Ministry &amp; ALIMCO distribution drives.
+            </div>
+            <div class="p-1.5 bg-slate-50 rounded border border-slate-100">
+              <b>🏢 Corporate CSR Grants:</b> 20% funded distribution via Tata, Infosys &amp; Reliance CSR.
+            </div>
+            <div class="p-1.5 bg-slate-50 rounded border border-slate-100">
+              <b>🌐 Direct-to-Consumer Portal:</b> Subsidized web store with assistive screen-reader UI.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COL 5: CUSTOMER SEGMENTS (1) -->
+    <div class="bmc-card">
+      <div>
+        <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+          <span class="font-fredoka text-sm font-bold text-slate-800 uppercase tracking-wide">CUSTOMER SEGMENTS</span>
+          <div class="badge-num">1</div>
+        </div>
+        <div class="mt-2.5 space-y-2 text-xs text-slate-600">
+          <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+            <b class="text-slate-900 block text-[11px]">🦯 Primary Users (1.2 Crore):</b>
+            Visually impaired &amp; low-vision individuals in India needing independent outdoor navigation.
+          </div>
+          <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+            <b class="text-slate-900 block text-[11px]">👴 Geriatric Population:</b>
+            Elderly citizens with combined visual deterioration &amp; balance instability (helped by motorized tip).
+          </div>
+          <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+            <b class="text-slate-900 block text-[11px]">🏛️ Institutional Buyers:</b>
+            Special schools, vocational blind rehabilitation centers, state welfare departments.
+          </div>
+          <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+            <b class="text-slate-900 block text-[11px]">👨‍👩‍👧 Caregivers &amp; Families:</b>
+            Seek peace of mind with real-time GPS tracking &amp; automated fall detection alerts.
+          </div>
+        </div>
+      </div>
+      <div class="text-[10px] text-purple-700 bg-purple-50 p-2 rounded border border-purple-200 font-semibold">
+        Total Addressable Market: ₹9,600 Cr in India alone.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM 2 PANELS: COST STRUCTURE (9) & REVENUE STREAMS (5) -->
+  <div class="grid grid-cols-2 gap-4 h-[160px]">
+    
+    <!-- 9. COST STRUCTURE -->
+    <div class="bmc-card">
+      <div class="flex items-center justify-between pb-1.5 border-b border-slate-100">
+        <span class="font-fredoka text-sm font-bold text-slate-800 uppercase tracking-wide">COST STRUCTURE</span>
+        <div class="badge-num">9</div>
+      </div>
+      <div class="grid grid-cols-4 gap-2 text-[11px] text-slate-600 mt-1.5">
+        <div class="bg-slate-50 p-1.5 rounded border border-slate-200">
+          <b class="text-slate-900 block text-[11px]">BOM (Scale):</b>
+          ₹8,500 per cane (Electronic ICs: 60%, Mechanics &amp; Carbon: 25%, Assembly: 15%).
+        </div>
+        <div class="bg-slate-50 p-1.5 rounded border border-slate-200">
+          <b class="text-slate-900 block text-[11px]">Tooling &amp; Molds:</b>
+          ₹12 Lakhs fixed one-time expenditure for polycarbonate injection molds.
+        </div>
+        <div class="bg-slate-50 p-1.5 rounded border border-slate-200">
+          <b class="text-slate-900 block text-[11px]">Cloud &amp; SIM Data:</b>
+          ₹15/month per device for emergency SMS &amp; telemetry via BSNL/Airtel M2M SIMs.
+        </div>
+        <div class="bg-slate-50 p-1.5 rounded border border-slate-200">
+          <b class="text-slate-900 block text-[11px]">Certification &amp; QA:</b>
+          ₹3 Lakhs for NABL testing, EMI/EMC compliance &amp; drop-shock durability testing.
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. REVENUE STREAMS -->
+    <div class="bmc-card">
+      <div class="flex items-center justify-between pb-1.5 border-b border-slate-100">
+        <span class="font-fredoka text-sm font-bold text-slate-800 uppercase tracking-wide">REVENUE STREAMS</span>
+        <div class="badge-num">5</div>
+      </div>
+      <div class="grid grid-cols-4 gap-2 text-[11px] text-slate-600 mt-1.5">
+        <div class="bg-emerald-50 p-1.5 rounded border border-emerald-200">
+          <b class="text-emerald-900 block text-[11px]">70% ADIP Bulk Tenders:</b>
+          Government procurement at ₹9,990/unit (within ADIP aid limit).
+        </div>
+        <div class="bg-blue-50 p-1.5 rounded border border-blue-200">
+          <b class="text-blue-900 block text-[11px]">20% CSR Sponsorships:</b>
+          Corporates adopt blind schools &amp; rural districts for free distribution.
+        </div>
+        <div class="bg-purple-50 p-1.5 rounded border border-purple-200">
+          <b class="text-purple-900 block text-[11px]">7% Direct Retail Sales:</b>
+          Subsidized direct sales to middle/higher income PwDs at ₹11,999.
+        </div>
+        <div class="bg-amber-50 p-1.5 rounded border border-amber-200">
+          <b class="text-amber-900 block text-[11px]">3% Modular Accessories:</b>
+          Replaceable rubber treads, bone-conduction bands, extra battery modules.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
